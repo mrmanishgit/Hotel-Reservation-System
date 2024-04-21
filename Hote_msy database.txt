@@ -1,0 +1,335 @@
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+SQL> CONN
+Enter user-name: HOTEL
+Enter password:123
+Connected.
+SQL> create table login(username varchar(25), password varchar(25));
+
+Table created.
+
+SQL> insert into login values('manish', '12345');
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select*from login;
+
+USERNAME                  PASSWORD
+------------------------- -------------------------
+manish                    12345
+
+SQL> create table employee(name varchar(25), age varchar(10), gender varchar(15), job varchar(30), salary varchar(15), phone varchar(15), email varchar(40), aadhar varchar(20));
+
+Table created.
+
+SQL> describe employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ AGE                                                VARCHAR2(10)
+ GENDER                                             VARCHAR2(15)
+ JOB                                                VARCHAR2(30)
+ SALARY                                             VARCHAR2(15)
+ PHONE                                              VARCHAR2(15)
+ EMAIL                                              VARCHAR2(40)
+ AADHAR                                             VARCHAR2(20)
+
+SQL> create table room(roomnumber varchar(10), availability varchar(20), cleaning_status varchar(20), price varchar(20), bed_type varchar(20));
+
+Table created.
+
+SQL> update room set availability = 'Available' where roomnumber = '101';
+
+0 rows updated.
+
+SQL> create table driver(name varchar(20), age varchar(10), gender varchar(15), company varchar(20), branch varchar(20), available varchar(20), location varchar(40));
+
+Table created.
+
+SQL> ALTER TABLE driver RENAME COLUMN branch TO brand;
+
+Table altered.
+
+SQL> create table customer(document varchar(20), numbers varchar(30), name varchar(30), gender varchar(15), country varchar(20), room varchar(10), c
+heckintime varchar(80), deposit varchar(20));
+
+
+SQL> create table department(department varchar(30), budget varchar(30));
+
+Table created.
+
+SQL> insert into department values('Front Office','500000');
+
+1 row created.
+
+SQL> insert into department values('Housekeeping', '40000');
+
+1 row created.
+
+SQL> insert into department values('Food and Beverage', '23000');
+
+1 row created.
+
+SQL> insert into department values('Kitchen or Food Production', '540000');
+
+1 row created.
+
+SQL> insert into department values('Security', '320000');
+
+1 row created.
+
+SQL> select * from department;
+
+DEPARTMENT                     BUDGET
+------------------------------ ------------------------------
+Front Office                   500000
+Housekeeping                   40000
+Food and Beverage              23000
+Kitchen or Food Production     540000
+Security                       320000
+
+SQL> desc tab;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ TNAME                                     NOT NULL VARCHAR2(128)
+ TABTYPE                                            VARCHAR2(13)
+ CLUSTERID                                          NUMBER
+
+SQL> select*from tab;
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+EMPLOYEE
+TABLE
+
+LOGIN
+TABLE
+
+ROOM
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+DRIVER
+TABLE
+
+CUSTOMER
+TABLE
+
+DEPARTMENT
+TABLE
+
+
+6 rows selected.
+
+SQL> select*from customer;
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          26523225620
+nayk kumar                     Male            india                null
+2
+2500
+
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          26523225620
+nayk kumar                     Male            india                null
+2
+2500
+
+
+SQL> desc customer;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DOCUMENT                                           VARCHAR2(20)
+ NUMBERS                                            VARCHAR2(30)
+ NAME                                               VARCHAR2(30)
+ GENDER                                             VARCHAR2(15)
+ COUNTRY                                            VARCHAR2(20)
+ ROOM                                               VARCHAR2(10)
+ CHECKINTIME                                        VARCHAR2(80)
+ DEPOSIT                                            VARCHAR2(20)
+
+SQL> select*from room;
+
+ROOMNUMBER AVAILABILITY         CLEANING_STATUS      PRICE
+---------- -------------------- -------------------- --------------------
+BED_TYPE
+--------------------
+1120       Available            Cleaned              5600
+Single Bed
+
+
+SQL> desc room;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROOMNUMBER                                         VARCHAR2(10)
+ AVAILABILITY                                       VARCHAR2(20)
+ CLEANING_STATUS                                    VARCHAR2(20)
+ PRICE                                              VARCHAR2(20)
+ BED_TYPE                                           VARCHAR2(20)
+
+SQL> select*from customer;
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          26523225620
+nayk kumar                     Male            india                null
+2
+2500
+
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          26523225620
+nayk kumar                     Male            india                null
+2
+2500
+
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          98685945201
+mohit kumar                    Male            India                1120
+2pm
+600
+
+
+SQL> desc customer;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DOCUMENT                                           VARCHAR2(20)
+ NUMBERS                                            VARCHAR2(30)
+ NAME                                               VARCHAR2(30)
+ GENDER                                             VARCHAR2(15)
+ COUNTRY                                            VARCHAR2(20)
+ ROOM                                               VARCHAR2(10)
+ CHECKINTIME                                        VARCHAR2(80)
+ DEPOSIT                                            VARCHAR2(20)
+
+SQL> select * from customer where numbers=123;
+
+no rows selected
+
+SQL> select * from customer where numbers=98685945201;
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          98685945201
+mohit kumar                    Male            India                1120
+2pm
+600
+SQL> select*from customer;
+
+DOCUMENT             NUMBERS
+-------------------- ------------------------------
+NAME                           GENDER          COUNTRY              ROOM
+------------------------------ --------------- -------------------- ----------
+CHECKINTIME
+--------------------------------------------------------------------------------
+DEPOSIT
+--------------------
+Aadhar Card          123456789
+akhya kumar                    Male            india                102
+3.30
+200
+
+
+SQL> select*from driver;
+
+NAME                 AGE        GENDER          COMPANY
+-------------------- ---------- --------------- --------------------
+BRAND                AVAILABLE
+-------------------- --------------------
+LOCATION
+----------------------------------------
+alok nayak           25         Male            marutisuzik
+sz20                 Yes
+hyderabad
+
+
+SQL> select*from room;
+
+ROOMNUMBER AVAILABILITY         CLEANING_STATUS      PRICE
+---------- -------------------- -------------------- --------------------
+BED_TYPE
+--------------------
+101        Available            Dirty                4500
+Double Bed
+
+102        Occupied             Dirty                8000
+Double Bed
+
+103        Occupied             Cleaned              2000
+Single Bed
+
+
+ROOMNUMBER AVAILABILITY         CLEANING_STATUS      PRICE
+---------- -------------------- -------------------- --------------------
+BED_TYPE
+--------------------
+103        Available            Cleaned              4000
+Double Bed
+
+1120       Available            Cleaned              5600
+Single Bed
+
+
+SQL> select*from department;
+
+DEPARTMENT                     BUDGET
+------------------------------ ------------------------------
+Front Office                   500000
+Housekeeping                   40000
+Food and Beverage              23000
+Kitchen or Food Production     540000
+Security                       320000
+
+SQL>
